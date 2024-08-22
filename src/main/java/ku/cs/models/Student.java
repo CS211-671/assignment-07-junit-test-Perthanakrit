@@ -5,6 +5,7 @@ public class Student {
     private String name;
     private double score;
 
+
     public Student(String id, String name) {
         this.id = id;
         this.name = name;
@@ -31,6 +32,18 @@ public class Student {
 
     public String grade()
     {
+        if (score >= 80) {
+            return "A";
+        }
+        else if (score >= 70) {
+            return "B";
+        }
+        else if (score >= 60) {
+            return "C";
+        }
+        else if (score >= 50) {
+            return "D";
+        }
         return "F";
     }
 
