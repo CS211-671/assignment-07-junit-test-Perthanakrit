@@ -8,29 +8,40 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class StudentListTest {
-    ArrayList<Student> studentList;
+    StudentList studentList;
 
     @BeforeEach
     void setUp() {
-        studentList = new ArrayList<>();
+        studentList = new StudentList();
     }
 
     @Test
     void addNewStudent() {
-        Student s1 = new Student("66xxxxxxx", "s1");
-        Student s2 = new Student("66xxxxxxx", "s2");
-        studentList.add(s1);
-        studentList.add(s2);
+        studentList.addNewStudent("66xxxxxx1", "s1");
+        studentList.addNewStudent("66xxxxxx2", "s2");
 
-        assertEquals(2, studentList.size());
+        assertEquals(2, studentList.getStudents().size());
     }
 
     @Test
     void findStudentById() {
+        studentList.addNewStudent("66xxxxxx1", "s1");
+        studentList.addNewStudent("66xxxxxx2", "s2");
+
+        String actual = "66xxxxxx2";
+        String expected = studentList.findStudentById("66xxxxxx2").getId();
+        assertEquals(expected, actual);
     }
 
     @Test
     void giveScoreToId() {
+        studentList.addNewStudent("66xxxxxx1", "s1", 50);
+        studentList.addNewStudent("66xxxxxx2", "s2", 55);
+
+        String userId = studentList.getStudents().get(0).getId();
+        studentList.giveScoreToId(userId, 11.11);
+
+        assertEquals(66.11, studentList.getStudents("66xxxxxx1"));
     }
 
     @Test
