@@ -64,6 +64,14 @@ public class Student {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Student other) {
+            return id.equals(other.id) && name.equals(other.name);
+        }
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "{" +
                 "id: '" + id + '\'' +

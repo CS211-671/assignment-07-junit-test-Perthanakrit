@@ -65,6 +65,15 @@ class StudentListTest {
                             "{id: '66xxxxxx2', name: 's2', score: 55.0}, " +
                             "{id: '66xxxxxx3', name: 's3', score: 60.0}]";
 
-        assertEquals(students.toString(), studentList.getStudents().toString());
+        assertEquals(students, studentList.getStudents().toString());
+    }
+
+    @Test
+    void getStudentByObject()
+    {
+        studentList.addNewStudent("66xxxxxx1", "s1", 50);
+
+        Student s1 = new Student("66xxxxxx1", "s1", 50);
+        assertEquals(s1, studentList.findStudentByObject(s1));
     }
 }
