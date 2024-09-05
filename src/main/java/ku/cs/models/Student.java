@@ -4,7 +4,7 @@ public class Student {
     private String id;
     private String name;
     private double score;
-
+    private Wallet wallet;
 
     public Student(String id, String name) {
         this.id = id;
@@ -16,6 +16,7 @@ public class Student {
         this.id = id;
         this.name = name;
         this.score = score;
+        this.wallet = new Wallet();
     }
 
     public void changeName(String name) {
@@ -62,7 +63,19 @@ public class Student {
     public double getScore() {
         return score;
     }
+    public Wallet getWallet() {
+        return wallet;
+    }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", score=" + score +
+                ", wallet=" + wallet +
+                '}';
+    }
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Student other) {
@@ -71,12 +84,4 @@ public class Student {
         return false;
     }
 
-    @Override
-    public String toString() {
-        return "{" +
-                "id: '" + id + '\'' +
-                ", name: '" + name + '\'' +
-                ", score: " + score +
-                '}';
-    }
 }
