@@ -50,4 +50,29 @@ class BankAccountTest {
         assertFalse(acc.withdraw(2000));
     }
 
+    @Test
+    @DisplayName("มีเงินพอสำหรับถอนเงินจากบัชญี และรับจำนวนเงินมากกว่า 0")
+    void getCashSuccessfully() {
+        BankAccount acc = new BankAccount("1234", "test", 1000);
+        assertTrue(acc.getCash(1000));
+    }
+
+    @Test
+    @DisplayName("ไม่สามารถรับเงินได้")
+    void failedTogetCash() {
+        BankAccount acc = new BankAccount("1234", "test", 100);
+        assertFalse(acc.getCash(1000));
+    }
+
+    @Test
+    void getInfo() {
+        BankAccount acc = new BankAccount("1234", "test", 100);
+
+        String actual = acc.getInfo();
+        String expected = "BanckAccount account number : " + acc.getAccountNumber();
+
+        assertEquals(expected, actual);
+    }
+
+
 }

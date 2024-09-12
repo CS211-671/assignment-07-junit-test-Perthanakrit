@@ -1,6 +1,6 @@
 package ku.cs.models;
 
-public class BankAccount {
+public class BankAccount implements Cash {
     private String accountNumber;
     private String accountName;
     private double balance;
@@ -53,5 +53,15 @@ public class BankAccount {
                 ", accountName='" + accountName + '\'' +
                 ", balance=" + balance +
                 '}';
+    }
+
+    @Override
+    public boolean getCash(double amount) {
+        return withdraw(amount);
+    }
+
+    @Override
+    public String getInfo() {
+        return "BanckAccount account number : " + accountNumber;
     }
 }

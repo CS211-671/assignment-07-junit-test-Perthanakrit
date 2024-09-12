@@ -2,7 +2,7 @@ package ku.cs.models;
 
 import java.io.Serializable;
 
-public class CreditAccount extends BankAccount{
+public class CreditAccount extends BankAccount {
     private double cashBack;
 
     public CreditAccount(String accountNumber, String accountName, double balance) {

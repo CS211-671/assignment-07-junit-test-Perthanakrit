@@ -17,13 +17,23 @@ public class Wallet {
                 "balance=" + balance +
                 '}';
     }
-    public boolean addMoneyToWallet(BankAccount account, double amount){
+
+    public boolean addMoneyToWallet(BankAccount  account, double amount){
         if (account.withdraw(amount)){
+            balance += amount;
+            return true; //
+        }
+        return false; // ไม่สามารถถอนเงินได้
+    }
+
+    public boolean addMoneyToWallet(Cash cash , double amount){
+        if (cash.getCash(amount)){
             balance += amount;
             return true;
         }
         return false;
     }
+
     public boolean takeMoneyOutOfWallet(double amount){
         if (balance >= amount){
             balance -= amount;
